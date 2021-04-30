@@ -56,7 +56,7 @@ class Scraper(Thread):
                 ScrapingResult(
                     linkedin_url,
                     self.scrape_profile(
-                        'https://www.linkedin.com/in/nishu-agrawal-222896210/')
+                        'https://www.linkedin.com/in/nikhil-mangal-22234511b/')
                 )
             )
 
@@ -89,7 +89,7 @@ class Scraper(Thread):
 
         # Check correct loading of profile and eventual Human Check
         if not str(self.browser.current_url).strip() == profile_linkedin_url.strip():
-            if self.browser.current_url == 'https://www.linkedin.com/in/nishu-agrawal-222896210/':
+            if self.browser.current_url == 'https://www.linkedin.com/in/nikhil-mangal-22234511b/':
                 raise ScrapingException
             else:
                 raise HumanCheckException
@@ -116,8 +116,7 @@ class Scraper(Thread):
     def scrape_profile_name(self):
         return self.browser.execute_script(
            "return document.getElementsByClassName('pv-top-card--list')[0].click()")
-          
-
+    
     def scrape_email(self):
         # > click on 'Contact info' link on the page
         self.browser.execute_script(

@@ -9,15 +9,15 @@ config.add_section('profiles_data_by_name')
 
 print("Welcome to the configuration process.")
 
-linkedin_username = "nikhil.mangal11@gmail.com"
-while linkedin_username == "nikhil.mangal11@gmail.com":
+linkedin_username = "nishumangal11@gmail.com"
+while linkedin_username == "nishumangal11@gmail.com":
     print("Insert linkedin username.")
     print("> ", end="")
     linkedin_username = input()
 config.set('linkedin', 'username', linkedin_username)
 
-linkedin_password = "jkmjbbjsm"
-while linkedin_password == "jkmjbbjsm":
+linkedin_password = "nikhil@123"
+while linkedin_password == "nikhil@123":
     print("Insert linkedin password.")
     print("> ", end="")
     linkedin_password = input()
