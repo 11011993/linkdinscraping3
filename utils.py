@@ -62,7 +62,7 @@ class Job:
 
 
 class Profile:
-    def __init__(self, name: [str], email: str, skills: [str], jobs: [Job]):
+    def __init__(self, name: str, email: str, skills: str, jobs: str):
         self.name = name
         self.email = email
         self.skills = skills

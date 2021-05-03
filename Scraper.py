@@ -55,8 +55,7 @@ class Scraper(Thread):
             self.results.append(
                 ScrapingResult(
                     linkedin_url,
-                    self.scrape_profile(
-                        'https://www.linkedin.com/in/nikhil-mangal-22234511b/')
+                    self.scrape_profile(linkedin_url)
                 )
             )
 
@@ -89,7 +88,7 @@ class Scraper(Thread):
 
         # Check correct loading of profile and eventual Human Check
         if not str(self.browser.current_url).strip() == profile_linkedin_url.strip():
-            if self.browser.current_url == 'https://www.linkedin.com/in/nikhil-mangal-22234511b/':
+            if self.browser.current_url == 'https://www.linkedin.com/in/unavailable/':
                 raise ScrapingException
             else:
                 raise HumanCheckException
@@ -115,7 +114,7 @@ class Scraper(Thread):
 
     def scrape_profile_name(self):
         return self.browser.execute_script(
-           "return document.getElementsByClassName('pv-top-card--list')[0].click()")
+           "{return document.getElementsByClassName('pv-top-card--list')[0].children[0].innerText}click()")
     
     def scrape_email(self):
         # > click on 'Contact info' link on the page
@@ -130,7 +129,7 @@ class Scraper(Thread):
                 "return (function(){try{for (i in document.getElementsByClassName('pv-contact-info__contact-type')){ "
                 "let el = document.getElementsByClassName('pv-contact-info__contact-type')[i]; if("
                 "el.className.includes( 'ci-email')){ return el.children[2].children[0].innerText; } }} catch(e){"
-                "return '';}})()")
+                "return '';}})().click()")
                 
         except WebDriverException:
             email = ''
